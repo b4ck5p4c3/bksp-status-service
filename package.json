@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Status service for consuming different things from NodeRED",
   "main": "src/main.ts",
-  "repository": "https://github.com/b4cksp4ce/bksp-status-service",
+  "repository": "https://github.com/b4cksp4c3/bksp-status-service",
   "author": "radioegor146",
   "license": "MIT",
   "dependencies": {
