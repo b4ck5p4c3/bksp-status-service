@@ -6,6 +6,9 @@
   "repository": "https://github.com/b4cksp4c3/bksp-status-service",
   "author": "radioegor146",
   "license": "MIT",
+  "scripts": {
+    "start": "tsx src/main.ts"
+  },
   "dependencies": {
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.14",
