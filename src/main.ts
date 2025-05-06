@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
 
 dotenv.config();
 
@@ -7,6 +8,7 @@ const PORT = parseInt(process.env.PORT ?? "8010");
 const NODERED_PUSH_TOKEN = process.env.NODERED_PUSH_TOKEN ?? "nodered-push-token";
 
 const app = express();
+app.use(bodyParser.json());
 
 enum SpacePowerStatus {
     UNKNOWN = "unknown",
