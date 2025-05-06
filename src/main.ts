@@ -48,6 +48,7 @@ app.post("/push/space-power", (req, res) => {
             currentStatus.spacePower = SpacePowerStatus.OFF;
             break;
     }
+    res.end();
 })
 
 app.listen(PORT);
