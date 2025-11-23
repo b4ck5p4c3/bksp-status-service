@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import {buildMetrics} from "./prometheus-builder";
 
 dotenv.config();
 
@@ -22,6 +23,18 @@ const currentStatus = {
 
 app.get("/status", (req, res) => {
     res.json(currentStatus);
+});
+
+app.get("/metrics", (req, res) => {
+    const metrics = buildMetrics(currentStatus.spacePower === SpacePowerStatus.UNKNOWN ? [] : [{
+        type: "gauge",
+        name: "bksp_power_status",
+        value: currentStatus.spacePower === SpacePowerStatus.ON ? 1 : 0,
+        help: "B4CKSP4CE power status (1 if on, 0 if off)"
+    }])
+    res.status(200).header({
+        "content-type": "text/plain"
+    }).end(metrics);
 });
 
 app.use("/push/", (req, res, next) => {
